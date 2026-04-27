@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 
-static void fifo_encolar(Planificador *p, ParametrosCamion *c)
+static void fifo_encolar(Planificador *p, TCBCamion *c)
 {
     if (p->cantidad < MAX_COLA)
     {
@@ -21,14 +21,14 @@ static void fifo_encolar(Planificador *p, ParametrosCamion *c)
     }
 }
 
-static ParametrosCamion *fifo_seleccionar(Planificador *p)
+static TCBCamion *fifo_seleccionar(Planificador *p)
 {
     if (p->cantidad == 0)
     {
         return NULL;
     }
 
-    ParametrosCamion *seleccionado = p->cola[0];
+    TCBCamion *seleccionado = p->cola[0];
 
     for (int i = 0; i < p->cantidad-1; i++)
     {
@@ -50,7 +50,7 @@ static ParametrosCamion *fifo_seleccionar(Planificador *p)
     return seleccionado;
 }
 
-static void fifo_post_ejecucion(Planificador *p, ParametrosCamion *c)
+static void fifo_post_ejecucion(Planificador *p, TCBCamion *c)
 {
     (void) c; 
     pthread_cond_broadcast(&p->cond_turno);

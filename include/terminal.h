@@ -18,7 +18,7 @@ typedef struct
     GestorMetricas metricas;
 
     Camion camiones[MAX_CAMIONES];
-    ParametrosCamion params[MAX_CAMIONES];
+    TCBCamion params[MAX_CAMIONES];
 
 } Terminal;
 

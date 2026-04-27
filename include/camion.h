@@ -2,7 +2,7 @@
 #define CAMION_H
  
 #include <pthread.h>
-#include "parametros_camion.h"
+#include "tcb_camion.h"
 
 
 typedef enum
@@ -14,7 +14,7 @@ typedef struct
 {
     pthread_t thread_id; 
     Estado estado; 
-    ParametrosCamion *params; 
+    TCBCamion *params; 
 
 } Camion;
 

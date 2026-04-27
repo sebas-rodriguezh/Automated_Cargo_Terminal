@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 
-static void rr_encolar(Planificador *p, ParametrosCamion *c)
+static void rr_encolar(Planificador *p, TCBCamion *c)
 {
     if (p->cantidad < MAX_COLA)
     {
@@ -21,14 +21,14 @@ static void rr_encolar(Planificador *p, ParametrosCamion *c)
     }
 }
 
-static ParametrosCamion *rr_seleccionar(Planificador *p)
+static TCBCamion *rr_seleccionar(Planificador *p)
 {
     if (p->cantidad == 0)
     {
         return NULL;
     }
 
-    ParametrosCamion *seleccionado = p->cola[0];
+    TCBCamion *seleccionado = p->cola[0];
 
     for (int i = 0; i < p->cantidad-1; i++)
     {
@@ -51,7 +51,7 @@ static ParametrosCamion *rr_seleccionar(Planificador *p)
 }
 
 
-static void rr_post_ejecucion(Planificador *p, ParametrosCamion *c)
+static void rr_post_ejecucion(Planificador *p, TCBCamion *c)
 {
     if (c->tiempo_restante > 0)
     {

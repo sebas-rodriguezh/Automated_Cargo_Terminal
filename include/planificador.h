@@ -2,7 +2,7 @@
 #define PLANIFICADOR_H
  
 #include <pthread.h>
-#include "parametros_camion.h"
+#include "tcb_camion.h"
 
 #define MAX_COLA 20
 
@@ -15,15 +15,15 @@ typedef struct Planificador
 {
     tipoAlgoritmo tipo; 
     int quantum;
-    ParametrosCamion *cola[MAX_COLA];
+    TCBCamion *cola[MAX_COLA];
     int cantidad;
     pthread_mutex_t mutex_cola; 
     pthread_cond_t cond_turno;
-    ParametrosCamion *camion_activo;
+    TCBCamion *camion_activo;
 
-    void (*encolar)(struct Planificador *p, ParametrosCamion *c);
-    ParametrosCamion *(*seleccionar)(struct Planificador *p);
-    void (*post_ejecucion)(struct Planificador *p, ParametrosCamion *c);
+    void (*encolar)(struct Planificador *p, TCBCamion *c);
+    TCBCamion *(*seleccionar)(struct Planificador *p);
+    void (*post_ejecucion)(struct Planificador *p, TCBCamion *c);
 
 } Planificador;
 

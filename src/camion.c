@@ -15,7 +15,7 @@ static long tiempo_actual_ms()
 
 void *ejecutar_camion(void *arg)
 {
-    ParametrosCamion *p  = (ParametrosCamion *) arg;
+    TCBCamion *p  = (TCBCamion *) arg;
     Planificador *pl = (Planificador *) p->planificador;
     char mensaje[160];
     int  i;

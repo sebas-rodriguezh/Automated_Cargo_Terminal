@@ -1,5 +1,5 @@
-#ifndef PARAMETROS_CAMION_H
-#define PARAMETROS_CAMION_H
+#ifndef TCB_CAMION_H
+#define TCB_CAMION_H
  
 #include "log.h"
 #include "metricas.h"
@@ -23,7 +23,7 @@ typedef struct
     GestorMetricas *metricas; 
     struct Planificador *planificador;
     
-} ParametrosCamion;
+} TCBCamion;
 
 
 #endif
